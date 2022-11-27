@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Insurances</title>
+</head>
+<body>
+
+<table>
+  <tr>
+    <td>id</td>
+    <td>vehicle_id</td>
+    <td>insurer</td>
+    <td>price</td>
+    <td>additional_data</td>
+    <td>insert_time</td>
+  </tr>
+  <tr th:each="task: ${insurances}">
+    <td th:text="${insurance.id}">taskId</td>
+    <td th:text="${insurance.vehicle_id}">taskId</td>
+    <td th:text="${insurance.insurer}">taskId</td>
+    <td th:text="${insurance.price}">status</td>
+    <td th:text="${insurance.additional_data}">status</td>
+    <td th:text="${insurance.insert_time}">status</td>
+    <td>
+      <span th:if="${task.getStatus != 100}">UNKNOWN</span>
+      <span th:unless="${task.getStatus != 100}" th:text="${task.getResult}">result</span>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
