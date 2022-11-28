@@ -13,8 +13,8 @@ CREATE TABLE vehicles(
     brand VARCHAR(255) NOT NULL,
     model VARCHAR(255) NOT NULL,
     additional_data VARCHAR(255),
-    insert_time TIMESTAMP NOT NULL,
-    CONSTRAINT fk_user FOREIGN KEY (login) REFERENCES users(login)
+    insert_time TIMESTAMP NOT NULL DEFAULT now(),
+    CONSTRAINT fk_user FOREIGN KEY (login) REFERENCES users(user_login)
 );
 
 CREATE TABLE insurances (
@@ -23,7 +23,12 @@ CREATE TABLE insurances (
     insurer VARCHAR(255) NOT NULL,
     price REAL NOT NULL,
     additional_data VARCHAR(255),
-    insert_time TIMESTAMP NOT NULL,
+    insert_time TIMESTAMP NOT NULL DEFAULT now(),
     CONSTRAINT fk_vehicle FOREIGN KEY (vehicle_id) REFERENCES vehicles(id)
 );
 
+INSERT INTO users (id, nick, user_login, password, additional_data) VALUES (1, 'John','Doe', 'password', 'test');
+
+INSERT INTO vehicles (id, login, brand, model, additional_data) VALUES (1, 'Doe', 'ford', 'mustang', 'test');
+
+INSERT INTO insurances (id, vehicle_id, insurer, price, additional_data) VALUES (1, 1,'Unknown', 100, 'test');

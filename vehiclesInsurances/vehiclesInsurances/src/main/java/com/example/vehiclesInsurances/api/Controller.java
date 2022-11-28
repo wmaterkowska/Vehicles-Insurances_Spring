@@ -20,12 +20,12 @@ public class Controller {
         return "listOfVehicles";
     }
 
-    @RequestMapping(value = "/listOfVehicles", method = RequestMethod.GET)
-    public ModelAndView getInsurances() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setView("listOfVehicles");
-        return modelAndView;
-    }
+    // @RequestMapping(value = "/listOfVehicles", method = RequestMethod.GET)
+    // public ModelAndView getInsurances() {
+    //     ModelAndView modelAndView = new ModelAndView();
+    //     modelAndView.setView("listOfVehicles");
+    //     return modelAndView;
+    // }
 
 
 

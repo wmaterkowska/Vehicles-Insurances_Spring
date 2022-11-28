@@ -1,11 +1,13 @@
 package com.example.vehiclesInsurances.data;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Getter
 @Entity
 @Table( name = "users")
 public class User {
@@ -31,6 +33,6 @@ public class User {
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL DEFAULT now()
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "login")
     List<Vehicle> vehicles;
 }

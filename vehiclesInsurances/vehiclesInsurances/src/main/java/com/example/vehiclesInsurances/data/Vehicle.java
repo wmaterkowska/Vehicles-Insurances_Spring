@@ -19,8 +19,9 @@ public class Vehicle {
     @NotNull
     private long id;
 
+
     @NotNull
-    @Column
+    @Column(insertable=false, updatable=false)
     String login; //- login text NOT NULL REFERENCES(users.login)
 
     @Column
@@ -36,7 +37,11 @@ public class Vehicle {
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL
 
-    @OneToMany(mappedBy = "vehicleId" )
+    @ManyToOne
+    @JoinColumn( name = "login", nullable = false )
+    User user;
+
+    @OneToMany(mappedBy = "vehicle")
     List<Insurance> insurances;
 
 }

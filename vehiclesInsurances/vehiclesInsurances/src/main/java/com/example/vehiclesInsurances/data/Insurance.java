@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "insurance_offers")
+@Table(name = "insurances")
 public class Insurance {
 
     @Id
@@ -30,5 +30,9 @@ public class Insurance {
 
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL
+
+    @ManyToOne
+    @JoinColumn( name = "vehicle", nullable = false)
+    Vehicle vehicle;
 
 }
