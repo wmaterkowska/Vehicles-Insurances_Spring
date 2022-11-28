@@ -1,10 +1,12 @@
 package com.example.vehiclesInsurances.data;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "insurances")
 public class Insurance {
@@ -16,7 +18,7 @@ public class Insurance {
     long id; // - id bigint PRIMARY KEY NOT NULL
 
 
-    @Column
+    @Column(insertable=false, updatable=false)
     long vehicleId; //- vehicle_id bigint NOT NULL REFERENCES (vehicles.id)
 
     @Column

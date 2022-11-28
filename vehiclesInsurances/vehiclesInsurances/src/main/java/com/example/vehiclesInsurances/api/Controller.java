@@ -15,15 +15,16 @@ public class Controller {
 
     @RequestMapping( method = RequestMethod.GET)
     @ResponseBody
-    public String getVehiclesInsurances(Model model, @RequestParam("id") long userId) {
+    public String getVehiclesInsurances(Model model, @RequestParam("id") Long userId) {
         model.addAttribute("listOfVehicles", this.service.getInsurancesForVehiclesOfUser( userId ));
         return "listOfVehicles";
     }
 
-    // @RequestMapping(value = "/listOfVehicles", method = RequestMethod.GET)
-    // public ModelAndView getInsurances() {
-    //     ModelAndView modelAndView = new ModelAndView();
-    //     modelAndView.setView("listOfVehicles");
+    // @RequestMapping(method = RequestMethod.GET)
+    // @ResponseBody
+    // public ModelAndView getInsurances(@RequestParam("id") long userId) {
+    //     ModelAndView modelAndView = new ModelAndView("listOfVehicles");
+    //     // modelAndView.setView("listOfVehicles");
     //     return modelAndView;
     // }
 

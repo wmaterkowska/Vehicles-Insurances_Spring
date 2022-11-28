@@ -17,7 +17,7 @@ public class Vehicle {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    private long id;
+    private Long id;
 
 
     @NotNull

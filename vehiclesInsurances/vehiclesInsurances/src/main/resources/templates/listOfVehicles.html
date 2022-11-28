@@ -6,28 +6,24 @@
 </head>
 <body>
 
-<p th:text="${user.id}"> userId </p>
+<p th:text="${param}"> userId </p>
 
 <table>
   <tr>
     <td>id</td>
     <td>vehicle_id</td>
-    <td>insurer</td>
-    <td>price</td>
-    <td>additional_data</td>
-    <td>insert_time</td>
+    <td>insurances</td>
   </tr>
-  <tr th:each="task: ${listOfVehicles}">
-    <td th:text="${insurance.id}">taskId</td>
-    <td th:text="${insurance.vehicle_id}">taskId</td>
-    <td th:text="${insurance.insurer}">taskId</td>
-    <td th:text="${insurance.price}">status</td>
-    <td th:text="${insurance.additional_data}">status</td>
-    <td th:text="${insurance.insert_time}">status</td>
-    <td>
-      <span th:if="${task.getStatus != 100}">UNKNOWN</span>
-      <span th:unless="${task.getStatus != 100}" th:text="${task.getResult}">result</span>
-    </td>
+  <tr th:each="vehicle: ${listOfVehicles.keySet()}">
+    <td th:text="${vehicle.getId()}">vehicle</td>
+    <td th:each="insurance: ${vehicle.getInsurances()}">insurances
+    <table>
+        <td th:text="${insurance.getId()}">id</td>
+        <td th:text="${insurance.getInsurer()}">insurer</td>
+        <td th:text="${insurance.getPrice()}">price</td>
+        <td th:text="${insurance.getAdditionalData}">additionalData</td>
+        <td th:text="${insurance.getInsertTime()}">time</td>
+    </table></td>
   </tr>
 </table>
 

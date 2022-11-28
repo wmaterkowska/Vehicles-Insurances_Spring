@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @org.springframework.stereotype.Service
 public class Service {
@@ -19,22 +18,25 @@ public class Service {
     @Autowired
     private InsuranceRepository insuranceRepository;
 
-    public List<Vehicle> getAllVehiclesForUserWithId(Long userId) {
+    private List<Vehicle> getAllVehiclesOfUserWithId(Long userId) {
 
         User user = this.userRepository.findById(userId).stream().findFirst().orElse(null);
-        String login = user.getLogin();
+        String login = null;
+        if (user != null) {
+            login = user.getLogin();
+        }
 
         return this.vehicleRepository.findByLogin(login);
     }
 
-    public List<Insurance> getAllInsurancesForVehicle(Long vehicleId) {
+    private List<Insurance> getAllInsurancesForVehicle(Long vehicleId) {
         return this.insuranceRepository.findAllByVehicleId(vehicleId);
     }
 
     public Map<Vehicle,List<Insurance>> getInsurancesForVehiclesOfUser(Long userId){
         Map<Vehicle,List <Insurance> > vehicleInsurancesMap = new HashMap<>();
 
-        List<Vehicle> vehiclesOfUser =  getAllVehiclesForUserWithId(userId);
+        List<Vehicle> vehiclesOfUser =  getAllVehiclesOfUserWithId(userId);
 
         for (Vehicle vehicle : vehiclesOfUser) {
             List<Insurance> insurancesForVehicle = getAllInsurancesForVehicle(vehicle.getId());
