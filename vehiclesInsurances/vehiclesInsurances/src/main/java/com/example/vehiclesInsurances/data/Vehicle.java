@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Entity
@@ -34,5 +35,8 @@ public class Vehicle {
     @NotNull
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL
+
+    @OneToMany(mappedBy = "vehicleId" )
+    List<Insurance> insurances;
 
 }

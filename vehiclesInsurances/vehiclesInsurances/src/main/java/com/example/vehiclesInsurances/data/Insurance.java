@@ -15,10 +15,9 @@ public class Insurance {
     @NotNull
     long id; // - id bigint PRIMARY KEY NOT NULL
 
-    @ManyToMany
-    @JoinTable()
+
     @Column
-    long vehicle_id; //- vehicle_id bigint NOT NULL REFERENCES (vehicles.id)
+    long vehicleId; //- vehicle_id bigint NOT NULL REFERENCES (vehicles.id)
 
     @Column
     String insurer; //- insurer text NOT NULL //nazwa towarzystwa ubezpieczeniowego z którego pochodzi dana oferta

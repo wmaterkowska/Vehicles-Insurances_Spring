@@ -14,7 +14,7 @@ public class Service {
     private InsuranceRepository insuranceRepository;
 
     public List<Vehicle> getAllVehiclesForUserWithId(Long userId) {
-        return this.vehicleRepository.findByUserId(userId);
+        return this.vehicleRepository.findByLogin(userId);
     }
 
     public List<Insurance> getAllInsurancesForVehicle(Long vehicleId) {

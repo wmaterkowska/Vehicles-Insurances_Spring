@@ -2,9 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of Insurances</title>
+    <title>List of Insurances For Vehicle Of User</title>
 </head>
 <body>
+
+<p th:text="${user.id}"> userId </p>
 
 <table>
   <tr>
@@ -15,7 +17,7 @@
     <td>additional_data</td>
     <td>insert_time</td>
   </tr>
-  <tr th:each="task: ${insurances}">
+  <tr th:each="task: ${listOfVehicles}">
     <td th:text="${insurance.id}">taskId</td>
     <td th:text="${insurance.vehicle_id}">taskId</td>
     <td th:text="${insurance.insurer}">taskId</td>

@@ -1,8 +1,10 @@
 package com.example.vehiclesInsurances.data;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table( name = "users")
@@ -29,4 +31,6 @@ public class User {
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL DEFAULT now()
 
+    @OneToMany(mappedBy = "id")
+    List<Vehicle> vehicles;
 }
