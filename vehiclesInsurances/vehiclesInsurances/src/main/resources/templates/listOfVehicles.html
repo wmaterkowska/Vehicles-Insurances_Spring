@@ -15,15 +15,16 @@
     <td>insurances</td>
   </tr>
   <tr th:each="vehicle: ${listOfVehicles.keySet()}">
-    <td th:text="${vehicle.getId()}">vehicle</td>
-    <td th:each="insurance: ${vehicle.getInsurances()}">insurances
-    <table>
-        <td th:text="${insurance.getId()}">id</td>
-        <td th:text="${insurance.getInsurer()}">insurer</td>
-        <td th:text="${insurance.getPrice()}">price</td>
-        <td th:text="${insurance.getAdditionalData}">additionalData</td>
-        <td th:text="${insurance.getInsertTime()}">time</td>
-    </table></td>
+    <td></td>
+    <td th:text="${vehicle.getId()}">vehicleId</td>
+    <td th:each="insurance: ${vehicle.getInsurances()}">
+      <table>
+        <tr th:text="${insurance.getId()}">id</tr>
+        <tr th:text="${insurance.getInsurer()}">insurer</tr>
+        <tr th:text="${insurance.getPrice()}">price</tr>
+        <tr th:text="${insurance.getAdditionalData}">additionalData</tr>
+        <tr th:text="${insurance.getInsertTime()}">time</tr>
+      </table></td>
   </tr>
 </table>
 

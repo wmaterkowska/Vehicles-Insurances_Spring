@@ -13,20 +13,21 @@ public class Controller {
     @Autowired
     private Service service;
 
-    @RequestMapping( method = RequestMethod.GET)
-    @ResponseBody
-    public String getVehiclesInsurances(Model model, @RequestParam("id") Long userId) {
-        model.addAttribute("listOfVehicles", this.service.getInsurancesForVehiclesOfUser( userId ));
-        return "listOfVehicles";
-    }
-
-    // @RequestMapping(method = RequestMethod.GET)
+    // @RequestMapping( method = RequestMethod.GET)
     // @ResponseBody
-    // public ModelAndView getInsurances(@RequestParam("id") long userId) {
-    //     ModelAndView modelAndView = new ModelAndView("listOfVehicles");
-    //     // modelAndView.setView("listOfVehicles");
-    //     return modelAndView;
+    // public String getVehiclesInsurances(Model model, @RequestParam("id") Long userId) {
+    //     model.addAttribute("listOfVehicles", this.service.getInsurancesForVehiclesOfUser( userId ));
+    //     return "listOfVehicles";
     // }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView getInsurances(@RequestParam("id") long userId) {
+        ModelAndView modelAndView = new ModelAndView("listOfVehicles");
+        modelAndView.addObject("listOfVehicles", this.service.getInsurancesForVehiclesOfUser(userId));
+        // modelAndView.setView("listOfVehicles");
+        return modelAndView;
+    }
 
 
 

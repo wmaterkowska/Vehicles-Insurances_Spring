@@ -15,11 +15,11 @@ public class Insurance {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    long id; // - id bigint PRIMARY KEY NOT NULL
+    Long id; // - id bigint PRIMARY KEY NOT NULL
 
 
     @Column(insertable=false, updatable=false)
-    long vehicleId; //- vehicle_id bigint NOT NULL REFERENCES (vehicles.id)
+    Long vehicle_id; //- vehicle_id bigint NOT NULL REFERENCES (vehicles.id)
 
     @Column
     String insurer; //- insurer text NOT NULL //nazwa towarzystwa ubezpieczeniowego z którego pochodzi dana oferta
@@ -33,8 +33,8 @@ public class Insurance {
     @Column
     LocalDateTime insertTime; //- insert_time timestamp NOT NULL
 
-    @ManyToOne
-    @JoinColumn( name = "vehicle", nullable = false)
+    @ManyToOne (targetEntity = Vehicle.class)
+    @JoinColumn( name = "vehicle_id", referencedColumnName ="id", nullable = false)
     Vehicle vehicle;
 
 }

@@ -36,6 +36,14 @@ public class User {
     @NotNull
     private LocalDateTime insertTime; //- insert_time timestamp NOT NULL DEFAULT now()
 
-    @OneToMany(mappedBy = "login")
-    private List<Vehicle> vehicles;
+    @OneToMany(mappedBy = "user")
+    private List<Vehicle> vehicle;
+
+    public List<Vehicle> getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(List<Vehicle> vehicle) {
+        this.vehicle = vehicle;
+    }
 }

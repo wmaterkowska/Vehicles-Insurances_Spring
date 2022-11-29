@@ -34,7 +34,7 @@ public class Service {
     }
 
     public Map<Vehicle,List<Insurance>> getInsurancesForVehiclesOfUser(Long userId){
-        Map<Vehicle,List <Insurance> > vehicleInsurancesMap = new HashMap<>();
+        Map<Vehicle,List<Insurance> > vehicleInsurancesMap = new HashMap<>();
 
         List<Vehicle> vehiclesOfUser =  getAllVehiclesOfUserWithId(userId);
 
